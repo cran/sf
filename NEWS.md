@@ -1,4 +1,28 @@
+# version 1.0-17
+
+* add `st_transform()` method for `bbox` objects; this uses OGRCoordinateTransformation::TransformBounds(), densifying first and antemeridian proof; #2415
+
+* `st_filter.sf()` correctly scopes `x` and `y` arguments using !! operator; #2416
+
+* `[.sfc` and `[<-.sfc` use matrix/array type subsetting for `sfc` objects that have a `dim` attribute
+
+* add `st_exterior_ring()` to extract exterior rings (remove holes); #2406
+
+* add `text.sf()`, `text.sfc()`, `points.sf()`, `points.sfc()` to annotate base plots at geometry centroids; #2399
+
+* `st_sf()` no longer strips `tbl` or `tbl_df` class labels; #2378
+
+* `st_layers()` returns an object of class `c("sf_layers", "data.frame")`, with a dedicated `print` method.
+
+* when `dim` is not `XYZM`, `sf_as_sf.data.frame()` interprets a length 4 `coords` argument to specify the corners of a rectangular polygon; #2357
+
+* `st_interpolate_aw()` gains an `na.rm` argument, for removing features with `NA` attributes before interpolating; #830
+
+* `merge.sf()` no longer renames geometry column; #2334
+
 # version 1.0-16
+
+* `st_join()` no longer renames the geometry column; #2327
 
 * `st_sample()` works when unprojected polygon geometry crosses the antemeridian; #2331
 

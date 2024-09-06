@@ -1,5 +1,5 @@
 Package: sf
-Version: 1.0-16
+Version: 1.0-17
 Title: Simple Features for R
 Authors@R: 
     c(person(given = "Edzer",
@@ -57,8 +57,7 @@ URL: https://r-spatial.github.io/sf/, https://github.com/r-spatial/sf
 BugReports: https://github.com/r-spatial/sf/issues
 Depends: methods, R (>= 3.3.0)
 Imports: classInt (>= 0.4-1), DBI (>= 0.8), graphics, grDevices, grid,
-        magrittr, Rcpp (>= 0.12.18), s2 (>= 1.1.0), stats, tools, units
-        (>= 0.7-0), utils
+        magrittr, s2 (>= 1.1.0), stats, tools, units (>= 0.7-0), utils
 Suggests: blob, nanoarrow, covr, dplyr (>= 1.0.0), ggplot2, knitr,
         lwgeom (>= 0.2-14), maps, mapview, Matrix, microbenchmark,
         odbc, pbapply, pillar, pool, raster, rlang, rmarkdown,
@@ -70,7 +69,7 @@ Suggests: blob, nanoarrow, covr, dplyr (>= 1.0.0), ggplot2, knitr,
 LinkingTo: Rcpp
 VignetteBuilder: knitr
 Encoding: UTF-8
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Config/testthat/edition: 2
 Config/needs/coverage: XML
 SystemRequirements: GDAL (>= 2.0.1), GEOS (>= 3.4.0), PROJ (>= 4.8.0),
@@ -88,7 +87,7 @@ Collate: 'RcppExports.R' 'init.R' 'import-standalone-s3-register.R'
         'm_range.R' 'shift_longitude.R' 'make_grid.R' 's2.R' 'terra.R'
         'geos-overlayng.R' 'break_antimeridian.R'
 NeedsCompilation: yes
-Packaged: 2024-03-20 22:16:20 UTC; edzer
+Packaged: 2024-09-06 11:19:40 UTC; edzer
 Author: Edzer Pebesma [aut, cre] (<https://orcid.org/0000-0001-8049-7069>),
   Roger Bivand [ctb] (<https://orcid.org/0000-0003-2392-6140>),
   Etienne Racine [ctb],
@@ -104,4 +103,4 @@ Author: Edzer Pebesma [aut, cre] (<https://orcid.org/0000-0001-8049-7069>),
   Dewey Dunnington [ctb] (<https://orcid.org/0000-0002-9415-4582>)
 Maintainer: Edzer Pebesma <edzer.pebesma@uni-muenster.de>
 Repository: CRAN
-Date/Publication: 2024-03-24 23:50:02 UTC
+Date/Publication: 2024-09-06 19:20:02 UTC

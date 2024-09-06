@@ -1,7 +1,7 @@
 
-R Under development (unstable) (2024-03-19 r86153 ucrt) -- "Unsuffered Consequences"
-Copyright (C) 2024 The R Foundation for Statistical Computing
-Platform: x86_64-w64-mingw32/x64
+R version 4.2.0 (2022-04-22) -- "Vigorous Calisthenics"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -144,4 +144,4 @@ plotting the first 10 out of 14 attributes; use max.plot = 14 to plot all
 > 
 > proc.time()
    user  system elapsed 
-   2.06    0.21    2.26 
+  3.146   0.104   3.289 

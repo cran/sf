@@ -79,13 +79,13 @@ set_utf8 = function(x) {
 #' data sources) directly from zip files can be done by prepending the path 
 #' with \code{/vsizip/}. This is part of the GDAL Virtual File Systems interface
 #' that also supports .gz, curl, and other operations, including chaining; see
-#' \url{https://gdal.org/user/virtual_file_systems.html} for a complete
+#' \url{https://gdal.org/en/latest/user/virtual_file_systems.html} for a complete
 #' description and examples.
 #'
 #' For \code{query} with a character \code{dsn} the query text is handed to
 #' 'ExecuteSQL' on the GDAL/OGR data set and will result in the creation of a
 #' new layer (and \code{layer} is ignored). See 'OGRSQL'
-#' \url{https://gdal.org/user/ogr_sql_dialect.html} for details. Please note that the
+#' \url{https://gdal.org/en/latest/user/ogr_sql_dialect.html} for details. Please note that the
 #' 'FID' special field is driver-dependent, and may be either 0-based (e.g. ESRI
 #' Shapefile), 1-based (e.g. MapInfo) or arbitrary (e.g. OSM). Other features of
 #' OGRSQL are also likely to be driver dependent. The available layer names may
@@ -405,8 +405,8 @@ abbreviate_shapefile_names = function(x) {
 #'   is missing, the \code{basename} of \code{dsn} is taken.
 #' @param driver character; name of driver to be used; if missing and \code{dsn} is not a Database Connection, a driver name is guessed from \code{dsn};
 #' \code{st_drivers()} returns the drivers that are available with their properties; links to full driver documentation
-#' are found at \url{https://gdal.org/drivers/vector/index.html}
-#' @param ... other arguments passed to \link{dbWriteTable} when \code{dsn} is a
+#' are found at \url{https://gdal.org/en/latest/drivers/vector/index.html}
+#' @param ... other arguments passed to \link[DBI]{dbWriteTable} when \code{dsn} is a
 #' Database Connection
 #' @param dataset_options character; driver dependent dataset creation options;
 #' multiple options supported.
@@ -443,7 +443,7 @@ abbreviate_shapefile_names = function(x) {
 #' When deleting layers or data sources is not successful, no error is emitted.
 #' \code{delete_dsn} and \code{delete_layer} should be
 #' handled with care; the former may erase complete directories or databases.
-#' @seealso \link{st_drivers}, \link{dbWriteTable}
+#' @seealso \link{st_drivers}, \link[DBI]{dbWriteTable}
 #' @return \code{obj}, invisibly
 #' @examples
 #' nc = st_read(system.file("shape/nc.shp", package="sf"))
@@ -625,7 +625,7 @@ write_sf <- function(..., quiet = TRUE, append = FALSE, delete_layer = !append) 
 #'   readable, and which may be written. The field `vsi` refers to the driver's
 #'   capability to read/create datasets through the VSI*L API. [See GDAL website
 #'   for additional details on driver
-#'   support](https://gdal.org/drivers/vector/index.html).
+#'   support](https://gdal.org/en/latest/drivers/vector/index.html)
 #' @return A `data.frame` with driver metadata.
 #' @export
 #' @md
@@ -700,7 +700,7 @@ st_layers = function(dsn, options = character(0), do_count = FALSE) {
 		Encoding(ret[[1]]) <- "UTF-8"
 		ret[[1]] <- enc2native(ret[[1]])
 	}
-	ret
+	structure(ret, row.names = seq_along(ret[[1]]), class = c("sf_layers", "data.frame"))
 }
 
 guess_driver = function(dsn) {

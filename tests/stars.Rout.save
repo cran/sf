@@ -1,7 +1,7 @@
 
-R Under development (unstable) (2024-03-19 r86153 ucrt) -- "Unsuffered Consequences"
+R version 4.3.3 (2024-02-29) -- "Angel Food Cake"
 Copyright (C) 2024 The R Foundation for Statistical Computing
-Platform: x86_64-w64-mingw32/x64
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -261,4 +261,4 @@ First 10 features:
 > 
 > proc.time()
    user  system elapsed 
-   2.17    0.29    2.45 
+  2.705   3.789   2.027 
