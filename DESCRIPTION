@@ -1,5 +1,5 @@
 Package: sf
-Version: 1.0-17
+Version: 1.0-18
 Title: Simple Features for R
 Authors@R: 
     c(person(given = "Edzer",
@@ -87,7 +87,7 @@ Collate: 'RcppExports.R' 'init.R' 'import-standalone-s3-register.R'
         'm_range.R' 'shift_longitude.R' 'make_grid.R' 's2.R' 'terra.R'
         'geos-overlayng.R' 'break_antimeridian.R'
 NeedsCompilation: yes
-Packaged: 2024-09-06 11:19:40 UTC; edzer
+Packaged: 2024-10-09 16:58:17 UTC; edzer
 Author: Edzer Pebesma [aut, cre] (<https://orcid.org/0000-0001-8049-7069>),
   Roger Bivand [ctb] (<https://orcid.org/0000-0003-2392-6140>),
   Etienne Racine [ctb],
@@ -103,4 +103,4 @@ Author: Edzer Pebesma [aut, cre] (<https://orcid.org/0000-0001-8049-7069>),
   Dewey Dunnington [ctb] (<https://orcid.org/0000-0002-9415-4582>)
 Maintainer: Edzer Pebesma <edzer.pebesma@uni-muenster.de>
 Repository: CRAN
-Date/Publication: 2024-09-06 19:20:02 UTC
+Date/Publication: 2024-10-11 06:30:02 UTC
