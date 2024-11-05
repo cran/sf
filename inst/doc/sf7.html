@@ -688,7 +688,7 @@ left) and excessive simplification (bottom right). Note that buffers
 created with s2 <em>always</em> follow s2 cell boundaries, they are
 never smooth. Hence, choosing a large number for <code>max_cells</code>
 leads to seemingly smooth but, zoomed in, very complex buffers.</p>
-<p>To achieve a similar result you could first transform thes result and
+<p>To achieve a similar result you could first transform the result and
 then use <code>sf::st_buffer()</code>. A simple benchmark shows the
 computational efficiency of the <code>s2</code> geometry engine in
 comparison with transforming and then creating buffers:</p>
@@ -698,32 +698,32 @@ comparison with transforming and then creating buffers:</p>
 <span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a>  uk_buffer_sf <span class="ot">=</span> <span class="fu">st_buffer</span>(uk_projected, <span class="at">dist =</span> <span class="dv">20000</span>)</span>
 <span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a>})</span>
 <span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a><span class="do">##    user  system elapsed </span></span>
-<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a><span class="do">##   0.023   0.001   0.024</span></span>
+<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a><span class="do">##   0.022   0.000   0.022</span></span>
 <span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a><span class="co"># sf way with few than the 30 segments in the buffer</span></span>
 <span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a><span class="fu">system.time</span>({</span>
 <span id="cb23-10"><a href="#cb23-10" tabindex="-1"></a>  uk_projected <span class="ot">=</span> <span class="fu">st_transform</span>(uk_sfc, <span class="dv">27700</span>)</span>
 <span id="cb23-11"><a href="#cb23-11" tabindex="-1"></a>  uk_buffer_sf2 <span class="ot">=</span> <span class="fu">st_buffer</span>(uk_projected, <span class="at">dist =</span> <span class="dv">20000</span>, <span class="at">nQuadSegs =</span> <span class="dv">4</span>)</span>
 <span id="cb23-12"><a href="#cb23-12" tabindex="-1"></a>})</span>
 <span id="cb23-13"><a href="#cb23-13" tabindex="-1"></a><span class="do">##    user  system elapsed </span></span>
-<span id="cb23-14"><a href="#cb23-14" tabindex="-1"></a><span class="do">##   0.007   0.000   0.007</span></span>
+<span id="cb23-14"><a href="#cb23-14" tabindex="-1"></a><span class="do">##   0.007   0.000   0.006</span></span>
 <span id="cb23-15"><a href="#cb23-15" tabindex="-1"></a><span class="co"># s2 with default cell size</span></span>
 <span id="cb23-16"><a href="#cb23-16" tabindex="-1"></a><span class="fu">system.time</span>({</span>
 <span id="cb23-17"><a href="#cb23-17" tabindex="-1"></a>  uk_buffer <span class="ot">=</span> <span class="fu">s2_buffer_cells</span>(uk, <span class="at">distance =</span> <span class="dv">20000</span>)</span>
 <span id="cb23-18"><a href="#cb23-18" tabindex="-1"></a>})</span>
 <span id="cb23-19"><a href="#cb23-19" tabindex="-1"></a><span class="do">##    user  system elapsed </span></span>
-<span id="cb23-20"><a href="#cb23-20" tabindex="-1"></a><span class="do">##   0.020   0.000   0.021</span></span>
+<span id="cb23-20"><a href="#cb23-20" tabindex="-1"></a><span class="do">##    0.02    0.00    0.02</span></span>
 <span id="cb23-21"><a href="#cb23-21" tabindex="-1"></a><span class="co"># s2 with 10000 cells</span></span>
 <span id="cb23-22"><a href="#cb23-22" tabindex="-1"></a><span class="fu">system.time</span>({</span>
 <span id="cb23-23"><a href="#cb23-23" tabindex="-1"></a>  uk_buffer2 <span class="ot">=</span> <span class="fu">s2_buffer_cells</span>(uk, <span class="at">distance =</span> <span class="dv">20000</span>, <span class="at">max_cells =</span> <span class="dv">10000</span>)</span>
 <span id="cb23-24"><a href="#cb23-24" tabindex="-1"></a>})</span>
 <span id="cb23-25"><a href="#cb23-25" tabindex="-1"></a><span class="do">##    user  system elapsed </span></span>
-<span id="cb23-26"><a href="#cb23-26" tabindex="-1"></a><span class="do">##   0.191   0.000   0.192</span></span>
+<span id="cb23-26"><a href="#cb23-26" tabindex="-1"></a><span class="do">##   0.185   0.001   0.186</span></span>
 <span id="cb23-27"><a href="#cb23-27" tabindex="-1"></a><span class="co"># s2 with 100 cells</span></span>
 <span id="cb23-28"><a href="#cb23-28" tabindex="-1"></a><span class="fu">system.time</span>({</span>
 <span id="cb23-29"><a href="#cb23-29" tabindex="-1"></a>  uk_buffer2 <span class="ot">=</span> <span class="fu">s2_buffer_cells</span>(uk, <span class="at">distance =</span> <span class="dv">20000</span>, <span class="at">max_cells =</span> <span class="dv">100</span>)</span>
 <span id="cb23-30"><a href="#cb23-30" tabindex="-1"></a>})</span>
 <span id="cb23-31"><a href="#cb23-31" tabindex="-1"></a><span class="do">##    user  system elapsed </span></span>
-<span id="cb23-32"><a href="#cb23-32" tabindex="-1"></a><span class="do">##   0.003   0.000   0.002</span></span></code></pre></div>
+<span id="cb23-32"><a href="#cb23-32" tabindex="-1"></a><span class="do">##   0.002   0.000   0.002</span></span></code></pre></div>
 <p>The result of the previous benchmarks emphasizes the point that there
 are trade-offs between geographic resolution and computational
 resources, something that web developers working on geographic services
