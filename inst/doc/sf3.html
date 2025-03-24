@@ -547,28 +547,29 @@ by <code>st_crs&lt;-</code>:</p>
 <span id="cb8-18"><a href="#cb8-18" tabindex="-1"></a><span class="do">##         MEMBER[&quot;World Geodetic System 1984 (G1674)&quot;],</span></span>
 <span id="cb8-19"><a href="#cb8-19" tabindex="-1"></a><span class="do">##         MEMBER[&quot;World Geodetic System 1984 (G1762)&quot;],</span></span>
 <span id="cb8-20"><a href="#cb8-20" tabindex="-1"></a><span class="do">##         MEMBER[&quot;World Geodetic System 1984 (G2139)&quot;],</span></span>
-<span id="cb8-21"><a href="#cb8-21" tabindex="-1"></a><span class="do">##         ELLIPSOID[&quot;WGS 84&quot;,6378137,298.257223563,</span></span>
-<span id="cb8-22"><a href="#cb8-22" tabindex="-1"></a><span class="do">##             LENGTHUNIT[&quot;metre&quot;,1]],</span></span>
-<span id="cb8-23"><a href="#cb8-23" tabindex="-1"></a><span class="do">##         ENSEMBLEACCURACY[2.0]],</span></span>
-<span id="cb8-24"><a href="#cb8-24" tabindex="-1"></a><span class="do">##     PRIMEM[&quot;Greenwich&quot;,0,</span></span>
-<span id="cb8-25"><a href="#cb8-25" tabindex="-1"></a><span class="do">##         ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],</span></span>
-<span id="cb8-26"><a href="#cb8-26" tabindex="-1"></a><span class="do">##     CS[ellipsoidal,2],</span></span>
-<span id="cb8-27"><a href="#cb8-27" tabindex="-1"></a><span class="do">##         AXIS[&quot;geodetic latitude (Lat)&quot;,north,</span></span>
-<span id="cb8-28"><a href="#cb8-28" tabindex="-1"></a><span class="do">##             ORDER[1],</span></span>
-<span id="cb8-29"><a href="#cb8-29" tabindex="-1"></a><span class="do">##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],</span></span>
-<span id="cb8-30"><a href="#cb8-30" tabindex="-1"></a><span class="do">##         AXIS[&quot;geodetic longitude (Lon)&quot;,east,</span></span>
-<span id="cb8-31"><a href="#cb8-31" tabindex="-1"></a><span class="do">##             ORDER[2],</span></span>
-<span id="cb8-32"><a href="#cb8-32" tabindex="-1"></a><span class="do">##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],</span></span>
-<span id="cb8-33"><a href="#cb8-33" tabindex="-1"></a><span class="do">##     USAGE[</span></span>
-<span id="cb8-34"><a href="#cb8-34" tabindex="-1"></a><span class="do">##         SCOPE[&quot;Horizontal component of 3D system.&quot;],</span></span>
-<span id="cb8-35"><a href="#cb8-35" tabindex="-1"></a><span class="do">##         AREA[&quot;World.&quot;],</span></span>
-<span id="cb8-36"><a href="#cb8-36" tabindex="-1"></a><span class="do">##         BBOX[-90,-180,90,180]],</span></span>
-<span id="cb8-37"><a href="#cb8-37" tabindex="-1"></a><span class="do">##     ID[&quot;EPSG&quot;,4326]]</span></span>
-<span id="cb8-38"><a href="#cb8-38" tabindex="-1"></a>s2 <span class="ot">=</span> s</span>
-<span id="cb8-39"><a href="#cb8-39" tabindex="-1"></a><span class="fu">st_crs</span>(s2) <span class="ot">&lt;-</span> <span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span></span>
-<span id="cb8-40"><a href="#cb8-40" tabindex="-1"></a><span class="fu">all.equal</span>(s1, s2)</span>
-<span id="cb8-41"><a href="#cb8-41" tabindex="-1"></a><span class="do">## [1] &quot;Component \&quot;geometry\&quot;: Attributes: &lt; Component \&quot;crs\&quot;: Component \&quot;input\&quot;: 1 string mismatch &gt;&quot;</span></span>
-<span id="cb8-42"><a href="#cb8-42" tabindex="-1"></a><span class="do">## [2] &quot;Component \&quot;geometry\&quot;: Attributes: &lt; Component \&quot;crs\&quot;: Component \&quot;wkt\&quot;: 1 string mismatch &gt;&quot;</span></span></code></pre></div>
+<span id="cb8-21"><a href="#cb8-21" tabindex="-1"></a><span class="do">##         MEMBER[&quot;World Geodetic System 1984 (G2296)&quot;],</span></span>
+<span id="cb8-22"><a href="#cb8-22" tabindex="-1"></a><span class="do">##         ELLIPSOID[&quot;WGS 84&quot;,6378137,298.257223563,</span></span>
+<span id="cb8-23"><a href="#cb8-23" tabindex="-1"></a><span class="do">##             LENGTHUNIT[&quot;metre&quot;,1]],</span></span>
+<span id="cb8-24"><a href="#cb8-24" tabindex="-1"></a><span class="do">##         ENSEMBLEACCURACY[2.0]],</span></span>
+<span id="cb8-25"><a href="#cb8-25" tabindex="-1"></a><span class="do">##     PRIMEM[&quot;Greenwich&quot;,0,</span></span>
+<span id="cb8-26"><a href="#cb8-26" tabindex="-1"></a><span class="do">##         ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],</span></span>
+<span id="cb8-27"><a href="#cb8-27" tabindex="-1"></a><span class="do">##     CS[ellipsoidal,2],</span></span>
+<span id="cb8-28"><a href="#cb8-28" tabindex="-1"></a><span class="do">##         AXIS[&quot;geodetic latitude (Lat)&quot;,north,</span></span>
+<span id="cb8-29"><a href="#cb8-29" tabindex="-1"></a><span class="do">##             ORDER[1],</span></span>
+<span id="cb8-30"><a href="#cb8-30" tabindex="-1"></a><span class="do">##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],</span></span>
+<span id="cb8-31"><a href="#cb8-31" tabindex="-1"></a><span class="do">##         AXIS[&quot;geodetic longitude (Lon)&quot;,east,</span></span>
+<span id="cb8-32"><a href="#cb8-32" tabindex="-1"></a><span class="do">##             ORDER[2],</span></span>
+<span id="cb8-33"><a href="#cb8-33" tabindex="-1"></a><span class="do">##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],</span></span>
+<span id="cb8-34"><a href="#cb8-34" tabindex="-1"></a><span class="do">##     USAGE[</span></span>
+<span id="cb8-35"><a href="#cb8-35" tabindex="-1"></a><span class="do">##         SCOPE[&quot;Horizontal component of 3D system.&quot;],</span></span>
+<span id="cb8-36"><a href="#cb8-36" tabindex="-1"></a><span class="do">##         AREA[&quot;World.&quot;],</span></span>
+<span id="cb8-37"><a href="#cb8-37" tabindex="-1"></a><span class="do">##         BBOX[-90,-180,90,180]],</span></span>
+<span id="cb8-38"><a href="#cb8-38" tabindex="-1"></a><span class="do">##     ID[&quot;EPSG&quot;,4326]]</span></span>
+<span id="cb8-39"><a href="#cb8-39" tabindex="-1"></a>s2 <span class="ot">=</span> s</span>
+<span id="cb8-40"><a href="#cb8-40" tabindex="-1"></a><span class="fu">st_crs</span>(s2) <span class="ot">&lt;-</span> <span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span></span>
+<span id="cb8-41"><a href="#cb8-41" tabindex="-1"></a><span class="fu">all.equal</span>(s1, s2)</span>
+<span id="cb8-42"><a href="#cb8-42" tabindex="-1"></a><span class="do">## [1] &quot;Component \&quot;geometry\&quot;: Attributes: &lt; Component \&quot;crs\&quot;: Component \&quot;input\&quot;: 1 string mismatch &gt;&quot;</span></span>
+<span id="cb8-43"><a href="#cb8-43" tabindex="-1"></a><span class="do">## [2] &quot;Component \&quot;geometry\&quot;: Attributes: &lt; Component \&quot;crs\&quot;: Component \&quot;wkt\&quot;: 1 string mismatch &gt;&quot;</span></span></code></pre></div>
 <p>An alternative, more pipe-friendly version of
 <code>st_crs&lt;-</code> is</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>s1 <span class="sc">%&gt;%</span> <span class="fu">st_set_crs</span>(<span class="dv">4326</span>)</span>

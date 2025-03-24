@@ -6,7 +6,7 @@
 #' Geometric unary operations on simple feature geometries. These are all generics, with methods for \code{sfg}, \code{sfc} and \code{sf} objects, returning an object of the same class. All operations work on a per-feature basis, ignoring all other features.
 #' @name geos_unary
 #' @param x object of class \code{sfg}, \code{sfc} or \code{sf}
-#' @param dist numeric or object of class `units`; buffer distance for all, or for each of the elements in \code{x}. 
+#' @param dist numeric or object of class `units`; buffer distance(s) for all, or for each of the elements in \code{x}. 
 #' In case \code{x} has geodetic coordinates (lon/lat) and `sf_use_s2()` is `TRUE`, a numeric 
 #' `dist` is taken as distance in meters and a `units` object in `dist` is converted to meters.
 #' In case \code{x} has geodetic coordinates (lon/lat) and `sf_use_s2()` is `FALSE`, a numeric 
@@ -28,8 +28,8 @@
 #' \code{singleSide} parameters only work if the GEOS engine is used (i.e. projected coordinates or
 #' when \code{sf_use_s2()} is set to \code{FALSE}). See \href{https://postgis.net/docs/ST_Buffer.html}{postgis.net/docs/ST_Buffer.html}
 #' for details. The \code{max_cells} and \code{min_level} parameters ([s2::s2_buffer_cells()]) work with the S2
-#' engine (i.e. geographic coordinates) and can be used to change the buffer shape (e.g. smoothing). If
-#' a negative buffer returns empty polygons instead of shrinking, set \code{sf_use_s2()} to \code{FALSE}.
+#' engine (i.e. geographic coordinates) and can be used to change the buffer shape (e.g. smoothing). 
+#' A negative `dist` value for geodetic coordinates does not give a proper (geodetic) buffer.
 #' 
 #' @examples
 #'
@@ -101,7 +101,10 @@ st_buffer.sfc = function(x, dist, nQuadSegs = 30,
 						 endCapStyle = "ROUND", joinStyle = "ROUND", mitreLimit = 1.0,
 						 singleSide = FALSE, ...) {
 	longlat = isTRUE(st_is_longlat(x))
-	if (longlat && sf_use_s2()) {
+	dist_n = dist
+	if (inherits(dist_n, "units"))
+		dist_n = drop_units(dist_n)
+	if (longlat && sf_use_s2() && all(dist_n >= 0.0)) {
 #		if (!missing(nQuadSegs) || !missing(endCapStyle) || !missing(joinStyle) ||
 #				!missing(mitreLimit) || !missing(singleSide))
 #			warning("all buffer style parameters are ignored; set st_use_s2(FALSE) first to use them")
@@ -451,6 +454,34 @@ st_minimum_rotated_rectangle.sf = function(x, dTolerance, ...) {
 	st_set_geometry(x, st_minimum_rotated_rectangle(st_geometry(x)), ...)
 }
 
+#' @name geos_unary
+#' @details \code{st_minimum_bounding_circle} 
+#' returns a geometry which represents the "minimum bounding circle",
+#' the smallest circle that contains the input.
+#' @export
+st_minimum_bounding_circle = function(x, ...)
+	UseMethod("st_minimum_bounding_circle")
+
+#' @export
+st_minimum_bounding_circle.sfg = function(x, ...) {
+	get_first_sfg(st_minimum_bounding_circle(st_sfc(x), ...))
+}
+
+#' @export
+st_minimum_bounding_circle.sfc = function(x, ...) {
+	if (compareVersion(CPL_geos_version(), "3.8.0") > -1) { # >=
+		if (isTRUE(st_is_longlat(x)))
+			warning("st_minimum_rotated_rectangle does not work correctly for longitude/latitude data")
+		st_sfc(CPL_geos_op("bounding_circle", x, 0L, integer(0),
+			dTolerance = 0., logical(0), bOnlyEdges = as.integer(FALSE)))
+	} else
+		stop("for st_minimum_bounding_circle, GEOS version 3.8.0 or higher is required")
+}
+
+#' @export
+st_minimum_bounding_circle.sf = function(x, ...) {
+	st_set_geometry(x, st_minimum_bounding_circle(st_geometry(x)), ...)
+}
 
 #' @name geos_unary
 #' @export
@@ -1172,6 +1203,7 @@ st_line_interpolate = function(line, dist, normalized = FALSE) {
 
 #' @export
 #' @name geos_unary
+#' @details \code{st_exterior_ring} returns the exterior rings of polygons, removing all holes.
 st_exterior_ring = function(x, ...) UseMethod("st_exterior_ring")
 
 #' @export

@@ -16,7 +16,7 @@ class(nc)
 attr(nc, "sf_column")
 
 ## ----echo=TRUE, eval=FALSE----------------------------------------------------
-#  print(nc[9:15], n = 3)
+# print(nc[9:15], n = 3)
 
 ## -----------------------------------------------------------------------------
 methods(class = "sf")
@@ -149,33 +149,33 @@ st_write(nc, "nc.shp", delete_layer = TRUE)
 write_sf(nc, "nc.shp") # silently overwrites
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  meuse <- st_read("PG:dbname=postgis", "meuse")
+# meuse <- st_read("PG:dbname=postgis", "meuse")
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  st_layers(system.file("osm/overpass.osm", package="sf"))
+# st_layers(system.file("osm/overpass.osm", package="sf"))
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  Sys.setenv(OSM_USE_CUSTOM_INDEXING="NO")
-#  st_layers(system.file("osm/overpass.osm", package="sf"), do_count = TRUE)
+# Sys.setenv(OSM_USE_CUSTOM_INDEXING="NO")
+# st_layers(system.file("osm/overpass.osm", package="sf"), do_count = TRUE)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  # Download .shp data
-#  u_shp <- "http://coagisweb.cabq.gov/datadownload/biketrails.zip"
-#  download.file(u_shp, "biketrails.zip")
-#  unzip("biketrails.zip")
-#  u_kmz <- "http://coagisweb.cabq.gov/datadownload/BikePaths.kmz"
-#  download.file(u_kmz, "BikePaths.kmz")
-#  
-#  # Read file formats
-#  biketrails_shp <- st_read("biketrails.shp")
-#  if(Sys.info()[1] == "Linux") # may not work if not Linux
-#    biketrails_kmz <- st_read("BikePaths.kmz")
-#  u_kml = "http://www.northeastraces.com/oxonraces.com/nearme/safe/6.kml"
-#  download.file(u_kml, "bikeraces.kml")
-#  bikraces <- st_read("bikeraces.kml")
+# # Download .shp data
+# u_shp <- "http://coagisweb.cabq.gov/datadownload/biketrails.zip"
+# download.file(u_shp, "biketrails.zip")
+# unzip("biketrails.zip")
+# u_kmz <- "http://coagisweb.cabq.gov/datadownload/BikePaths.kmz"
+# download.file(u_kmz, "BikePaths.kmz")
+# 
+# # Read file formats
+# biketrails_shp <- st_read("biketrails.shp")
+# if(Sys.info()[1] == "Linux") # may not work if not Linux
+#   biketrails_kmz <- st_read("BikePaths.kmz")
+# u_kml = "http://www.northeastraces.com/oxonraces.com/nearme/safe/6.kml"
+# download.file(u_kml, "bikeraces.kml")
+# bikraces <- st_read("bikeraces.kml")
 
 ## -----------------------------------------------------------------------------
-nc.web_mercator <- st_transform(nc, 3857)
+nc.web_mercator <- st_transform(nc, "EPSG:3857")
 st_geometry(nc.web_mercator)[[4]][[2]][[1]][1:3,]
 
 ## -----------------------------------------------------------------------------

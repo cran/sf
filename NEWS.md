@@ -1,3 +1,16 @@
+# version 1.0-20
+
+* `st_buffer()` on geodetic coordinates with negative buffer distance now automatically switches to using GEOS, while giving a warning; #1987
+
+* `st_interpolate_aw()` fixes bug when a GEOMETRYCOLLECTION contains multiple POLYGON structures; found by @mtennekes
+
+* `st_buffer()` for geodetic coordinates allows `max_dist` and `min_level` 
+   to be specified by feature; #2488 and https://github.com/r-spatial/s2/pull/264
+
+* `distinct.sf()` allows for comparing exact equality of geometries when `exact = TRUE`; #2484
+
+* `st_minimum_bounding_circle()` returns geometries representing the smallest circle that contains the input; #2473
+
 # version 1.0-19
 
 * fix type checks in C++ GDAL area and length computation functions, anticipating GDAL 3.10.0; #2466, #2468, #2469 by @rsbivand and @rouault

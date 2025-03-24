@@ -84,19 +84,19 @@ ggplot() +
   scale_y_continuous(breaks = 34:36)
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  library(mapview)
-#  mapviewOptions(fgb = FALSE) # needed when creating web pages
-#  mapview(nc["BIR74"], col.regions = sf.colors(10), fgb = FALSE)
+# library(mapview)
+# mapviewOptions(fgb = FALSE) # needed when creating web pages
+# mapview(nc["BIR74"], col.regions = sf.colors(10), fgb = FALSE)
 
 ## ----eval=require("tmap", quietly = TRUE)-------------------------------------
 library(tmap)
 qtm(nc)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  tmap_mode("view")
-#  tm_shape(nc) + tm_fill("BIR74", palette = sf.colors(5))
+# tmap_mode("view")
+# tm_shape(nc) + tm_fill("BIR74", palette = sf.colors(5))
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  ttm()
-#  tmap_last()
+# ttm()
+# tmap_last()
 

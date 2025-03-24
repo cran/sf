@@ -78,7 +78,7 @@ sf_use_s2(FALSE)
 l2 = st_length(nc_ls)
 plot(l1 , l2)
 abline(0, 1)
-summary((l1-l2)/l1)
+summary((l1 - l2)/l1)
 
 ## -----------------------------------------------------------------------------
 sf_use_s2(TRUE)
@@ -87,7 +87,7 @@ sf_use_s2(FALSE)
 d2 = st_distance(nc, nc[1:10,])
 plot(as.vector(d1), as.vector(d2))
 abline(0, 1)
-summary(as.vector(d1)-as.vector(d2))
+summary(as.vector(d1) - as.vector(d2))
 
 ## -----------------------------------------------------------------------------
 sf_use_s2(TRUE)
