@@ -373,10 +373,10 @@ which comes shipped with the <code>sf</code> package by:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>fname <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;shape/nc.shp&quot;</span>, <span class="at">package=</span><span class="st">&quot;sf&quot;</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>fname</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="do">## [1] &quot;/tmp/RtmpZ7pNPt/Rinsta1cec63ddfdc2/sf/shape/nc.shp&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="do">## [1] &quot;/tmp/RtmpnCguY4/Rinste66d141b029b6/sf/shape/nc.shp&quot;</span></span>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>nc <span class="ot">&lt;-</span> <span class="fu">st_read</span>(fname)</span>
 <span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="do">## Reading layer `nc&#39; from data source </span></span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="do">##   `/tmp/RtmpZ7pNPt/Rinsta1cec63ddfdc2/sf/shape/nc.shp&#39; using driver `ESRI Shapefile&#39;</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="do">##   `/tmp/RtmpnCguY4/Rinste66d141b029b6/sf/shape/nc.shp&#39; using driver `ESRI Shapefile&#39;</span></span>
 <span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="do">## Simple feature collection with 100 features and 14 fields</span></span>
 <span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="do">## Geometry type: MULTIPOLYGON</span></span>
 <span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="do">## Dimension:     XY</span></span>
@@ -441,7 +441,7 @@ argument <code>stringsAsFactors</code> can be set to
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">options</span>(<span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">st_read</span>(fname)</span>
 <span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="do">## Reading layer `nc&#39; from data source </span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="do">##   `/tmp/RtmpZ7pNPt/Rinsta1cec63ddfdc2/sf/shape/nc.shp&#39; using driver `ESRI Shapefile&#39;</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="do">##   `/tmp/RtmpnCguY4/Rinste66d141b029b6/sf/shape/nc.shp&#39; using driver `ESRI Shapefile&#39;</span></span>
 <span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="do">## Simple feature collection with 100 features and 14 fields</span></span>
 <span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="do">## Geometry type: MULTIPOLYGON</span></span>
 <span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="do">## Dimension:     XY</span></span>
@@ -454,9 +454,9 @@ argument <code>stringsAsFactors</code> can be set to
 arguments, the object and a filename:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">st_write</span>(nc, <span class="st">&quot;nc1.shp&quot;</span>)</span></code></pre></div>
 <p>The file name is taken as the data source name. The default for the
-layer name is the basename (filename without path) of the the data
-source name. For this, <code>st_write()</code> needs to guess the
-driver. The above command is, for instance, equivalent to:</p>
+layer name is the basename (filename without path) of the data source
+name. For this, <code>st_write()</code> needs to guess the driver. The
+above command is, for instance, equivalent to:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">st_write</span>(nc, <span class="at">dsn =</span> <span class="st">&quot;nc1.shp&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;nc.shp&quot;</span>, <span class="at">driver =</span> <span class="st">&quot;ESRI Shapefile&quot;</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="do">## Writing layer `nc&#39; to data source `nc1.shp&#39; using driver `ESRI Shapefile&#39;</span></span>
 <span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="do">## Writing 100 features with 14 fields and geometry type Multi Polygon.</span></span></code></pre></div>

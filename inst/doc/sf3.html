@@ -678,9 +678,10 @@ DE9-IM relationships between each pair of geometries:</p>
 <p>element [i,j] of this matrix has nine characters, referring to
 relationship between x[i] and y[j], encoded as <span class="math inline">\(I_xI_y,I_xB_y,I_xE_y,B_xI_y,B_xB_y,B_xE_y,E_xI_y,E_xB_y,E_xE_y\)</span>
 where <span class="math inline">\(I\)</span> refers to interior, <span class="math inline">\(B\)</span> to boundary, and <span class="math inline">\(E\)</span> to exterior, and e.g. <span class="math inline">\(B_xI_y\)</span> the dimensionality of the
-intersection of the the boundary <span class="math inline">\(B_x\)</span> of x[i] and the interior <span class="math inline">\(I_y\)</span> of y[j], which is one of {0,1,2,F},
-indicating zero-, one-, two-dimension intersection, and (F) no
-intersection, respectively.</p>
+intersection of the boundary <span class="math inline">\(B_x\)</span> of
+x[i] and the interior <span class="math inline">\(I_y\)</span> of y[j],
+which is one of {0,1,2,F}, indicating zero-, one-, two-dimension
+intersection, and (F) no intersection, respectively.</p>
 </div>
 <div id="binary-logical-operations" class="section level3">
 <h3>Binary logical operations:</h3>
@@ -704,9 +705,9 @@ intersection, respectively.</p>
 <span id="cb20-10"><a href="#cb20-10" tabindex="-1"></a><span class="do">## [3,] FALSE FALSE TRUE FALSE</span></span></code></pre></div>
 <p>where list element <code>i</code> of a sparse matrix contains the
 indices of the <code>TRUE</code> elements in row <code>i</code> of the
-the dense matrix. For large geometry sets, dense matrices take up a lot
-of memory and are mostly filled with <code>FALSE</code> values, hence
-the default is to return a sparse matrix.</p>
+dense matrix. For large geometry sets, dense matrices take up a lot of
+memory and are mostly filled with <code>FALSE</code> values, hence the
+default is to return a sparse matrix.</p>
 <p><code>st_intersects()</code> returns for every geometry pair whether
 they intersect (dense matrix), or which elements intersect (sparse).
 Note that <code>st_intersection()</code> in this package returns a

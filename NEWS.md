@@ -1,3 +1,13 @@
+# version 1.0-21
+
+* `st_crs(..., parameters = TRUE)` returns base geographic CRS as `gcs_crs`; #2524
+
+* loading `sf` no longer initializes the RNG state; see https://github.com/r-quantities/units/issues/409
+
+* fix `st_sample()` on geodetic coordinates; #2515
+
+* use `compareVersion()` consistently to compare GDAL versions; #2512
+
 # version 1.0-20
 
 * `st_buffer()` on geodetic coordinates with negative buffer distance now automatically switches to using GEOS, while giving a warning; #1987
