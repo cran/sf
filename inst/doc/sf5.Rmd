@@ -1,18 +1,20 @@
 ---
 title: "5. Plotting Simple Features"
 author: "Edzer Pebesma"
-output: rmarkdown::html_vignette
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
 vignette: >
   %\VignetteIndexEntry{5. Plotting Simple Features}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-**For a better version of the sf vignettes see** https://r-spatial.github.io/sf/articles/
-
 This vignette describes the functions in `sf` that can help to plot 
-knitr::opts_chunk$set(fig.height = 4.5)
-knitr::opts_chunk$set(fig.width = 6)
 simple features. It tries to be complete about the plot methods 
 `sf` provides, and give examples and pointers to options to plot
 simple feature objects with other packages (mapview, tmap, ggplot2).

@@ -1,18 +1,20 @@
 ---
 title: "7. Spherical geometry in sf using s2geometry"
 author: "Edzer Pebesma and Dewey Dunnington"
-output: rmarkdown::html_vignette
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
 vignette: >
   %\VignetteIndexEntry{7. Spherical geometry in sf using s2geometry}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-**For a better version of the sf vignettes see** https://r-spatial.github.io/sf/articles/
-
 ```{r echo=FALSE, include=FALSE}
-knitr::opts_chunk$set(fig.height = 4.5)
-knitr::opts_chunk$set(fig.width = 6)
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 

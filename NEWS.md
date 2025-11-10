@@ -1,3 +1,19 @@
+# version 1.0-22
+
+* `st_combine()` on `POINT` geometries ignores empty points; #2551
+
+* handle empty points better in `st_point()`, `st_as_sf.data.frame()` and `st_distance()`; https://github.com/r-spatial/s2/issues/289
+
+* for unprojected lines, `st_line_interpolate()` requires distance values with degree units; #2542
+
+* `unique.sfc()` added; #2546
+
+* for geodetic coordinates, `st_perimeter()` uses ellipsoidal computation if `sf_use_s2()` is `FALSE`; #2541
+
+* `st_as_sf.owin()` and `st_as_sfc.owin()` no longer ignore `crs` argument; #2532
+
+* clarify approximation errors in `st_buffer()` and how they differ for the GEOS or S2 backends, with examples by David Kaplan @dmkaplan2000; #2528
+
 # version 1.0-21
 
 * `st_crs(..., parameters = TRUE)` returns base geographic CRS as `gcs_crs`; #2524
@@ -700,7 +716,7 @@
 
 * fix plotting of `sf` objects without attributes; #755
 
-* add reference to the [R Journal article](https://journal.r-project.org/archive/2018/RJ-2018-009/index.html) in CITATION
+* add reference to the [R Journal article](https://journal.r-project.org/articles/RJ-2018-009/index.html) in CITATION
 
 # version 0.6-3
 

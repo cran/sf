@@ -1,5 +1,5 @@
 Package: sf
-Version: 1.0-21
+Version: 1.0-22
 Title: Simple Features for R
 Authors@R: 
     c(person(given = "Edzer",
@@ -72,7 +72,7 @@ Suggests: blob, nanoarrow, covr, dplyr (>= 1.0.0), ggplot2, knitr,
 LinkingTo: Rcpp
 VignetteBuilder: knitr
 Encoding: UTF-8
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Config/testthat/edition: 2
 Config/needs/coverage: XML
 SystemRequirements: GDAL (>= 2.0.1), GEOS (>= 3.4.0), PROJ (>= 4.8.0),
@@ -90,7 +90,7 @@ Collate: 'RcppExports.R' 'init.R' 'import-standalone-s3-register.R'
         'm_range.R' 'shift_longitude.R' 'make_grid.R' 's2.R' 'terra.R'
         'geos-overlayng.R' 'break_antimeridian.R'
 NeedsCompilation: yes
-Packaged: 2025-05-14 19:01:58 UTC; edzer
+Packaged: 2025-11-06 16:17:03 UTC; edzer
 Author: Edzer Pebesma [aut, cre] (ORCID:
     <https://orcid.org/0000-0001-8049-7069>),
   Roger Bivand [ctb] (ORCID: <https://orcid.org/0000-0003-2392-6140>),
@@ -107,4 +107,4 @@ Author: Edzer Pebesma [aut, cre] (ORCID:
   Dewey Dunnington [ctb] (ORCID: <https://orcid.org/0000-0002-9415-4582>)
 Maintainer: Edzer Pebesma <edzer.pebesma@uni-muenster.de>
 Repository: CRAN
-Date/Publication: 2025-05-15 06:30:02 UTC
+Date/Publication: 2025-11-10 09:00:08 UTC

@@ -75,3 +75,12 @@ crs <- gdal_crs(tif)
 
 try(gdal_metadata("foo"))
 gdal_metadata(tif)
+
+if (require(stars, quietly = TRUE)) {
+	p = normalizePath(system.file("nc/ones.zarr.zip", package = "sf"))
+	z = paste0('ZARR:/vsizip/"', p, '"/ones.zarr')
+	gdal_utils("mdiminfo", z)
+	cat("\n")
+	print(read_stars(z, normalize_path = FALSE))
+	print(read_mdim(z, normalize_path = FALSE))
+}
