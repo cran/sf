@@ -1494,7 +1494,7 @@ s2geometry</h1>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>This vignette describes what spherical geometry implies, and how
-package <code>sf</code> uses the s2geometry library (<a href="http://s2geometry.io" class="uri">http://s2geometry.io</a>) for
+package <code>sf</code> uses the s2geometry library (<a href="https://s2geometry.io" class="uri">https://s2geometry.io</a>) for
 geometrical measures, predicates and transformations.<br />
 After <code>sf</code> has been loaded, it will report whether
 <code>s2</code> is being used; it can be switched off (resorting to flat
@@ -1558,7 +1558,7 @@ ellipsoid</li>
 <li>no computations on the ellipsoid (which are considered more
 accurate, but are also slower)</li>
 </ul>
-<p>The <code>s2</code> package is really a wrapper around the C++ <a href="http://s2geometry.io">s2geometry</a> library which was written by
+<p>The <code>s2</code> package is really a wrapper around the C++ <a href="https://s2geometry.io">s2geometry</a> library which was written by
 Google, and which is used in many of its products (e.g. Google Maps,
 Google Earth Engine, BigQuery GIS) and has been translated in several
 other programming languages.</p>
@@ -1850,32 +1850,32 @@ system.time({
   uk_buffer_sf = st_buffer(uk_projected, dist = 20000)
 })
 ##    user  system elapsed 
-##    0.02    0.00    0.02
+##   0.019   0.000   0.020
 # sf way with few than the 30 segments in the buffer
 system.time({
   uk_projected = st_transform(uk_sfc, 27700)
   uk_buffer_sf2 = st_buffer(uk_projected, dist = 20000, nQuadSegs = 4)
 })
 ##    user  system elapsed 
-##   0.007   0.000   0.007
+##   0.007   0.000   0.006
 # s2 with default cell size
 system.time({
   uk_buffer = s2_buffer_cells(uk, distance = 20000)
 })
 ##    user  system elapsed 
-##   0.017   0.000   0.017
+##   0.018   0.000   0.018
 # s2 with 10000 cells
 system.time({
   uk_buffer2 = s2_buffer_cells(uk, distance = 20000, max_cells = 10000)
 })
 ##    user  system elapsed 
-##   0.157   0.000   0.156
+##   0.158   0.000   0.159
 # s2 with 100 cells
 system.time({
   uk_buffer2 = s2_buffer_cells(uk, distance = 20000, max_cells = 100)
 })
 ##    user  system elapsed 
-##   0.002   0.000   0.003</code></pre>
+##   0.002   0.000   0.002</code></pre>
 <p>The result of the previous benchmarks emphasizes the point that there
 are trade-offs between geographic resolution and computational
 resources, something that web developers working on geographic services
