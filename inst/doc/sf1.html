@@ -1491,13 +1491,12 @@ font-size: 0.95em;
 
 
 <p><a href="https://en.wikipedia.org/wiki/Simple_Features">Simple
-features</a> or <a href="https://www.ogc.org/standards/sfa/"><em>simple
-feature access</em></a> refers to a formal standard (ISO 19125-1:2004)
-that describes how objects in the real world can be represented in
-computers, with emphasis on the <em>spatial</em> geometry of these
-objects. It also describes how such objects can be stored in and
-retrieved from databases, and which geometrical operations should be
-defined for them.</p>
+features</a> or <em>simple feature access</em> refers to a formal
+standard (ISO 19125-1:2004) that describes how objects in the real world
+can be represented in computers, with emphasis on the <em>spatial</em>
+geometry of these objects. It also describes how such objects can be
+stored in and retrieved from databases, and which geometrical operations
+should be defined for them.</p>
 <p>The standard is widely implemented in spatial databases (such as <a href="https://postgis.net/">PostGIS</a>), commercial GIS (e.g., <a href="https://www.esri.com/en-us/home">ESRI ArcGIS</a>) and forms the
 vector data basis for libraries such as <a href="https://gdal.org/">GDAL</a>. A subset of simple features forms the
 <a href="https://geojson.org/">GeoJSON</a> standard.</p>
@@ -1534,7 +1533,7 @@ Spatial attributes are geometry valued, and simple features are based on
 2D geometry with linear interpolation between vertices.</em>” We will
 see soon that the same standard will extend its coverage beyond 2D and
 beyond linear interpolation. Here, we take simple features as the data
-structures and operations described in the <a href="https://www.ogc.org/standards/sfa/">standard</a>.</p>
+structures and operations described in the standard.</p>
 <div id="dimensions" class="section level2">
 <h2>Dimensions</h2>
 <p>All geometries are composed of points. Points are coordinates in a
@@ -1748,7 +1747,7 @@ features with attributes, the two are put together in <code>sf</code>
 ## Linking to GEOS 3.12.2, GDAL 3.11.4, PROJ 9.4.1; sf_use_s2() is TRUE
 nc &lt;- st_read(system.file(&quot;shape/nc.shp&quot;, package=&quot;sf&quot;))
 ## Reading layer `nc&#39; from data source 
-##   `/tmp/Rtmpf5fyxR/Rinst7821a76ab6bd2/sf/shape/nc.shp&#39; using driver `ESRI Shapefile&#39;
+##   `/tmp/Rtmp9k0FLT/Rinsta688013c4b259/sf/shape/nc.shp&#39; using driver `ESRI Shapefile&#39;
 ## Simple feature collection with 100 features and 14 fields
 ## Geometry type: MULTIPOLYGON
 ## Dimension:     XY
@@ -1942,7 +1941,7 @@ exterior) for the geometry of feature 4 by:</p>
 ## [69] st_z_range                   st_zm                       
 ## [71] str                          summary                     
 ## [73] text                         unique                      
-## [75] vec_cast.sfc                 vec_ptype2.sfc              
+## [75] xtfrm                       
 ## see &#39;?methods&#39; for accessing help and source code</code></pre>
 <p>Coordinate reference systems (<code>st_crs()</code> and
 <code>st_transform()</code>) are discussed in the section on <a href="#crs">coordinate reference systems</a>. <code>st_as_wkb()</code>
@@ -2154,7 +2153,7 @@ be done by:</p>
 <pre class="r"><code>filename &lt;- system.file(&quot;shape/nc.shp&quot;, package=&quot;sf&quot;)
 nc &lt;- st_read(filename)
 ## Reading layer `nc&#39; from data source 
-##   `/tmp/Rtmpf5fyxR/Rinst7821a76ab6bd2/sf/shape/nc.shp&#39; using driver `ESRI Shapefile&#39;
+##   `/tmp/Rtmp9k0FLT/Rinsta688013c4b259/sf/shape/nc.shp&#39; using driver `ESRI Shapefile&#39;
 ## Simple feature collection with 100 features and 14 fields
 ## Geometry type: MULTIPOLYGON
 ## Dimension:     XY
@@ -2519,7 +2518,7 @@ time:</p>
         CRESS_ID = &quot;identity&quot;, BIR74 = &quot;aggregate&quot;, SID74 = &quot;aggregate&quot;, NWBIR74 = &quot;aggregate&quot;,
         BIR79 = &quot;aggregate&quot;, SID79 = &quot;aggregate&quot;, NWBIR79 = &quot;aggregate&quot;))
 ## Reading layer `nc&#39; from data source 
-##   `/tmp/Rtmpf5fyxR/Rinst7821a76ab6bd2/sf/shape/nc.shp&#39; using driver `ESRI Shapefile&#39;
+##   `/tmp/Rtmp9k0FLT/Rinsta688013c4b259/sf/shape/nc.shp&#39; using driver `ESRI Shapefile&#39;
 ## Simple feature collection with 100 features and 14 fields
 ## Attribute-geometry relationships: aggregate (8), identity (6)
 ## Geometry type: MULTIPOLYGON
