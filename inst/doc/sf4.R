@@ -1,4 +1,6 @@
 ## ----echo=FALSE, include=FALSE------------------------------------------------
+knitr::opts_chunk$set(fig.height = 4.5)
+knitr::opts_chunk$set(fig.width = 6)
 knitr::opts_chunk$set(collapse = TRUE)
 
 ## -----------------------------------------------------------------------------
@@ -9,10 +11,10 @@ nc[1,]
 
 ## -----------------------------------------------------------------------------
 library(dplyr)
-nc %>% select(NWBIR74) %>% head(2)
+nc |> select(NWBIR74) |> head(2)
 
 ## -----------------------------------------------------------------------------
-nc %>% as.data.frame %>% select(NWBIR74) %>% head(2)
+nc |> as.data.frame() |> select(NWBIR74) |> head(2)
 
 ## -----------------------------------------------------------------------------
 nc[1, "NWBIR74"]
@@ -30,11 +32,11 @@ Ashe = nc[nc$NAME == "Ashe",]
 nc[Ashe, op = st_touches]
 
 ## -----------------------------------------------------------------------------
-nc %>% filter(lengths(st_touches(., Ashe)) > 0)
+nc |> filter(lengths(st_touches(nc, Ashe)) > 0)
 
 ## -----------------------------------------------------------------------------
 a <- aggregate(nc[, c("SID74", "BIR74")], list(Ashe_nb = lengths(st_intersects(nc, Ashe)) > 0), sum)
-(a <- a %>% mutate(frac74 = SID74 / BIR74) %>% select(frac74))
+a <- a |> mutate(frac74 = SID74 / BIR74) |> select(frac74)
 plot(a[2], col = c(grey(.8), grey(.5)))
 plot(st_geometry(Ashe), border = '#ff8888', add = TRUE, lwd = 2)
 

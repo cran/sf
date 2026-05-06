@@ -1,4 +1,6 @@
 ## ----echo=FALSE, include=FALSE------------------------------------------------
+knitr::opts_chunk$set(fig.height = 4.5)
+knitr::opts_chunk$set(fig.width = 6)
 knitr::opts_chunk$set(collapse = TRUE)
 if (file.exists("nc1.shp"))
 	file.remove("nc1.shp", "nc1.dbf", "nc1.shx")
@@ -41,10 +43,10 @@ nc <- st_read(fname)
 # st_read("PG:dbname=postgis", "sids")
 
 ## ----eval=FALSE---------------------------------------------------------------
-# st_read(fname, stringsAsFactors = FALSE)
+# st_read(fname, stringsAsFactors = TRUE)
 
 ## -----------------------------------------------------------------------------
-options(stringsAsFactors = FALSE)
+options(stringsAsFactors = TRUE)
 st_read(fname)
 
 ## ----eval=FALSE---------------------------------------------------------------

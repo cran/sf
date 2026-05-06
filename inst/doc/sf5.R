@@ -77,7 +77,7 @@ ggplot() +
 ## -----------------------------------------------------------------------------
 library(dplyr)
 library(tidyr)
-nc2 <- nc %>% select(SID74, SID79, geom) %>% gather(VAR, SID, -geom)
+nc2 <- nc |> select(SID74, SID79, geom) |> gather(VAR, SID, -geom)
 ggplot() + 
   geom_sf(data = nc2, aes(fill = SID)) + 
   facet_wrap(~VAR, ncol = 1) +

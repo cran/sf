@@ -1,15 +1,17 @@
 ## ----echo=FALSE, include=FALSE------------------------------------------------
+knitr::opts_chunk$set(fig.height = 4.5)
+knitr::opts_chunk$set(fig.width = 6)
 knitr::opts_chunk$set(collapse = TRUE)
 
 ## -----------------------------------------------------------------------------
 library(sf)
 suppressPackageStartupMessages(library(dplyr))
-st_point(c(1,1)) %>% st_cast("MULTIPOINT")
-st_multipoint(rbind(c(1,1))) %>% st_cast("POINT")
-st_multipoint(rbind(c(1,1),c(2,2))) %>% st_cast("POINT")
+st_point(c(1,1)) |> st_cast("MULTIPOINT")
+st_multipoint(rbind(c(1,1))) |> st_cast("POINT")
+st_multipoint(rbind(c(1,1),c(2,2))) |> st_cast("POINT")
 
 ## -----------------------------------------------------------------------------
-st_geometrycollection(list(st_point(c(1,1)))) %>% st_cast("POINT")
+st_geometrycollection(list(st_point(c(1,1)))) |> st_cast("POINT")
 
 ## -----------------------------------------------------------------------------
 shp = system.file("shape/nc.shp", package="sf")
@@ -73,16 +75,16 @@ st_crs(s2) <- "+proj=longlat +datum=WGS84"
 all.equal(s1, s2)
 
 ## -----------------------------------------------------------------------------
-s1 %>% st_set_crs(4326)
+s1 |> st_set_crs(4326)
 
 ## -----------------------------------------------------------------------------
-s3 <- s1 %>% st_set_crs(4326) %>% st_set_crs(3857)
+s3 <- s1 |> st_set_crs(4326) |> st_set_crs(3857)
 
 ## -----------------------------------------------------------------------------
-s3 <- s1  %>% st_set_crs(NA) %>% st_set_crs(3857)
+s3 <- s1  |> st_set_crs(NA) |> st_set_crs(3857)
 
 ## -----------------------------------------------------------------------------
-s3 <- s1 %>% st_transform(3857)
+s3 <- s1 |> st_transform(3857)
 s3
 
 ## ----figure=TRUE--------------------------------------------------------------
